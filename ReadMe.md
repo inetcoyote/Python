@@ -1,4 +1,4 @@
-файл [Main.py](https://github.com/inetcoyote/Python/blob/master/Main.py) - приветствие
+файл [Hello.py](https://github.com/inetcoyote/Python/blob/master/Hello.py) - приветствие
 
 Игры: <br>
 файл [Snake.py](https://github.com/inetcoyote/Python/blob/master/Snake.py) - игра змейка
