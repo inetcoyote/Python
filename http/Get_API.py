@@ -1,0 +1,28 @@
+import requests
+from decouple import config
+
+# Убедитесь, что .env существует и содержит GITHUB_TOKEN
+token = config('GITHUB_TOKEN', default='')
+
+headers = {
+    'Accept': 'application/vnd.github.v3+json'
+}
+if token:
+    headers['Authorization'] = f'token {token}'
+
+url = 'https://api.github.com/repos/inetcoyote/Python'  # ← Замените на реальные значения
+
+response = requests.get(url, headers=headers)
+
+if response.status_code == 200:
+    print("✅ Репозиторий найден!")
+    #print(response.json())
+    data = response.json()
+    size = data.get('size')  # Размер репозитория в килобайтах
+    print(f"Размер репозитория: {size} KB")
+elif response.status_code == 404:
+    print("❌ Репозиторий не найден. Проверьте имя пользователя и репозитория.")
+elif response.status_code == 403:
+    print("🔒 Доступ запрещён. Проверьте токен и права доступа.")
+else:
+    print(f"❌ Ошибка: {response.status_code}, {response.json()}")
