@@ -1,6 +1,7 @@
 import Functions
 
 def main():
+
     print("4 рандомных UUID")
     for i in range(4):
         Functions.uuid_generate()
@@ -15,7 +16,7 @@ def main():
     res = Functions.my_sum(a, b)
     print(f"Сумма {a} и {b} равна {res}")
 
-
+    Functions.test_func()
 
 if __name__ == "__main__":
     main()

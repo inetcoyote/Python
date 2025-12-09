@@ -1,0 +1,47 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+autonumber
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+Alice -> Bob: Another authentication Request
+Alice <-- Bob: another authentication Response
+@enduml
+
+@startuml
+actor Пользователь
+participant "Пользовательский\nинтерфейс" as UI
+participant "Сервис\nаутентификации" as AuthService
+participant "База данных" as DB
+
+Пользователь -> UI : Вводит логин и пароль
+UI -> AuthService : Отправляет данные
+AuthService -> DB : Запрашивает данные пользователя
+DB --> AuthService : Возвращает данные
+AuthService --> UI : Возвращает результат
+UI --> Пользователь : Отображает результат
+@enduml
+
+@startuml
+actor Пользователь
+participant "Хранилище\nфайлов" as DWH
+participant "Сервис\nобработки" as PO
+participant "База данных" as DB
+
+Пользователь -> DWH : Выкладывает реестр с \nперечнем файлов для\nобработки
+PO -> DWH : Проверяет наличие файлов
+AuthService -> DB : Запрашивает данные пользователя
+DB --> AuthService : Возвращает данные
+AuthService --> UI : Возвращает результат
+UI --> Пользователь : Отображает результат
+@enduml
+
+@startuml
+participant "Файловый\nсервис" as FileService
+participant "Хранилище\nфайлов" as Storage
+
+loop каждую минуту
+    FileService -> Storage : Сканирует директорию / Получает список файлов
+    Storage --> FileService : Возвращает список файлов (без явного "да/нет")
+    FileService -> FileService : Проверяет, есть ли нужный файл в списке
+end
+@enduml
