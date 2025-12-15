@@ -1,4 +1,4 @@
 Игры: <br>
-файл [Snake.py](games/Snake.py) - игра змейка
+файл [Snake.py](Snake.py) - игра змейка
 
-файл [Jumper.py](games/Jumper.py) - игра прыгунок
+файл [Jumper.py](Jumper.py) - игра прыгунок
