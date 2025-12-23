@@ -9,3 +9,8 @@
 #### Функции: 
 
 файл [Functions.py](https://github.com/inetcoyote/Python/blob/master/Functions.py) - функции
+
+
+#### Приложение для windows:
+
+файл [readMe.md](PyWindowsApp/ReadMe.md)
