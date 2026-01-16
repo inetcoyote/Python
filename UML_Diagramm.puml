@@ -1,0 +1,28 @@
+@startuml
+package "Test Scope 1" {
+	component Sender <<app>><<sut>>
+	interface Producer <<mock>>
+	Sender -> Producer: send
+}
+@enduml
+
+@startuml
+' sequenceDiagram
+    participant User
+    participant API
+    participant Redis
+    participant DB
+    participant Queue
+    participant Worker
+    participant Frontend
+
+    User->>API: POST /vote {poll_id, option_id, token}
+    API->>API: Проверка JWT/email + не голосовал ли
+    API->>DB: INSERT Vote (асинхронно через Queue)
+    API->>Redis: INCR PollResultCache
+    API-->>User: 200 OK
+    Queue->>Worker: Обновить кэш и пересчитать
+    Worker->>DB: Агрегация голосов (если нужно)
+    Worker->>Frontend: Отправить обновление (WebSocket)
+@enduml
+
