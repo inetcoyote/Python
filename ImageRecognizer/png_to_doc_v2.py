@@ -8,7 +8,7 @@ pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tessera
 image_path = 'name.png'
 
 # Путь к выходному текстовому файлу
-output_path = 'recognized_text_name.txt'
+output_path = 'recognized_name.txt'
 # Открываем изображение
 try:
     img = Image.open(image_path)
