@@ -5,7 +5,7 @@ import pytesseract
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 # Путь к изображению
-image_path = 'name.png'
+image_path = 'example/name.png'
 
 # Путь к выходному текстовому файлу
 output_path = 'recognized_name.txt'
