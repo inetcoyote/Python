@@ -13,8 +13,8 @@ FTP_HOST = config('FTP_HOST', default='')
 FTP_USER = config('FTP_USER', default='')
 #FTP_PASS = "password"
 FTP_PASS = config('FTP_PASS', default='')
-REMOTE_FILE = "math_test.json"  # Путь к файлу на сервере
-LOCAL_FILE = "examples_local.json"  # Локальная копия
+REMOTE_FILE = "math_test/math_test.json"  # Путь к файлу на сервере
+LOCAL_FILE = "math_test_local.json"  # Локальная копия
 
 class MathFTPApp:
     def __init__(self, root):
