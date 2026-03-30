@@ -26,7 +26,8 @@ def generate_math_problems(max_num=20, count=10):
     # Генерация задач на вычитание (с положительным результатом)
     for _ in range(count - len(problems)):
         a = random.randint(1, max_num)
-        b = random.randint(1, a)  # чтобы a - b >= 0
+        b = random.randint(1, max_num)
+        #b = random.randint(1, a)  # чтобы a - b >= 0
         problem = f"{a} - {b}"
         correct_answer = a - b
         problems.append({
@@ -34,7 +35,8 @@ def generate_math_problems(max_num=20, count=10):
             "user_answer": None,
             "correct_answer": correct_answer
         })
-
+    # Перемешиваем задачи, чтобы не было паттернов
+    random.shuffle(problems)
     return problems
 
 def upload_to_ftp(file_path, ftp_host, ftp_user, ftp_pass, remote_dir, remote_filename):
